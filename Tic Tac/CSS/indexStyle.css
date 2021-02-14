@@ -1,0 +1,90 @@
+#block{
+    width: 30vw;
+    height: 60vh;
+    border: 0.01em rgba(70, 70, 70, 0.7)  solid ;
+    margin-left: 33vw;
+    margin-top: 18vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 0px;
+    padding: 0%;
+}
+
+.Containers{
+   background-color: #2726262d;
+   border: 1px blue solid;
+   color: white;
+   text-align: center;
+   font-size: 15vh;
+   padding-top: 1vh;
+       
+    
+}
+
+body{
+    background-color: black;
+}
+
+.top{
+    border-top: none;
+}
+
+.bottom{
+    border-bottom: none;
+}
+
+.left{
+    border-left: none;
+}
+
+.right{
+    border-right: none;
+}
+
+section{
+    color: rgb(34, 196, 196);
+    font-size: 2.3em;
+    text-decoration: underline;
+    margin-left: 35%;
+    margin-top: 2%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@keyframes breathe{
+   0%{
+       opacity:0.5;
+   }
+   50%{
+       opacity: 1;
+   }
+   100%{
+       opacity: 0.5;
+   }
+    
+}
+
+#Animate{
+    animation-name: breathe;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+
+#Resetbtn{
+    background-color: #2726262d;
+    color:rgba(70, 70, 70, 1);
+    font-size: 1em;
+    margin-left: 3vw;
+    margin-bottom: 0px;
+    
+
+}
+
+#Resetbtn:hover{
+    color: beige;
+    transform: scale(1.1);
+    outline: blue inset;
+    
+
+}

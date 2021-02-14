@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="../CSS/indexStyle.css">
+</head>
+<body>
+    <script src="../JS/main.js"></script>
+    
+    <nav><input type="button" value="Reset board" id="Resetbtn" onclick="clearBoard()"></nav>
+
+    <div id="block">
+        <div id="area1" class="Containers top left" onclick="makeCross(1)"></div>
+        <div id="area2" class="Containers top" onclick="makeCross(2)"></div>
+        <div id="area3" class="Containers top right" onclick="makeCross(3)"></div>
+        <div id="area4" class="Containers left" onclick="makeCross(4)"></div>
+        <div id="area5" class="Containers" onclick="makeCross(5)"></div>
+        <div id="area6" class="Containers right" onclick="makeCross(6)"></div>
+        <div id="area7" class="Containers bottom left" onclick="makeCross(7)"></div>
+        <div id="area8" class="Containers bottom" onclick="makeCross(8)"></div>
+        <div id="area9" class="Containers bottom right" onclick="makeCross(9)"></div>
+    </div>
+
+   <section id="Animate">Make the first move</section>
+</body>
+</html>
