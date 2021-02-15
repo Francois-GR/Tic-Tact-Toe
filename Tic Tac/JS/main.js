@@ -203,6 +203,8 @@ function firstMove(block){ //need firstmove to populate array
 }
 
 function makeCircle(){ //computer plays
+    let state = winnerDetected();
+    if (state == false){
     if (OccopiedBlocks.length<8){
     let CPUBlock = Math.floor(Math.random() * 5) +1;
     CPUBlock += Math.floor(Math.random()*4) +1
@@ -215,6 +217,8 @@ function makeCircle(){ //computer plays
     document.getElementById('area'+CPUBlock).style.color = "Red";
     markComputerMove(CPUBlock);
     OccopiedBlocks.push(CPUBlock);
+}
+
 
 }
 
