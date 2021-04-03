@@ -1,9 +1,9 @@
 
 var OccopiedBlocks = [];
-
 var counter = 0;
 function makeCross(block){
     var winner = winnerDetected();
+    
 
     if (OccopiedBlocks.length < 1 ){
         firstMove(block);
@@ -16,13 +16,13 @@ function makeCross(block){
 
             let isOccupied = OccupiedBlock(block);    
             
-            if (isOccupied== false){
+            if (isOccupied == false){
                 document.getElementById('area'+block).innerHTML = 'X';
                 document.getElementById('area'+block).style.color = "Blue";
                 OccopiedBlocks.push(block);
                 counter++;
                 markPlayerMove(block);
-                console.log('played');
+                console.log('user played');
                 if (winner == false){                
                     makeCircle();
                 }
@@ -47,24 +47,17 @@ function makeCross(block){
             }
             else if (winner == 3){
                 //tie
-                document.getElementById('Animate').innerHTML = 'WOW! you managed to tie';
+                document.getElementById('Animate').innerHTML = 'WOW! you tied';
                 document.getElementById('Animate').style.color = "Yellow";
                 console.log('tie');
             }
         }
-    }
-
-   
-
-        
-
-    
-    
+    }        
 }
 
 //vcount for vertical (column) count of player moves
 //hCount for horizontal (row) player moves
-//dCount for diaganol moves, 1 positive diaganol, 2 negative diaganol
+//dCount for diaganol moves, d1 for positive diaganol, d2 for negative diaganol
 var v1Count = 0;
 var v2Count = 0;
 var v3Count = 0;
@@ -73,8 +66,6 @@ var h2Count = 0;
 var h3Count = 0;
 var d1Count = 0;
 var d2Count = 0;
-
-
 function markPlayerMove(block){
     switch(block){
         case 1:
@@ -122,6 +113,7 @@ function markPlayerMove(block){
         default:
             console.log('error in switch logic')
             window.alert('error in switch logic')
+            location.reload()
             break;
     }
 
@@ -135,7 +127,6 @@ var h2CountCPU = 0;
 var h3CountCPU = 0;
 var d1CountCPU = 0;
 var d2CountCPU = 0;
-
 
 function markComputerMove(block){
     switch(block){
@@ -205,22 +196,29 @@ function firstMove(block){ //need firstmove to populate array
 function makeCircle(){ //computer plays
     let state = winnerDetected();
     if (state == false){
-    if (OccopiedBlocks.length<8){
-    let CPUBlock = Math.floor(Math.random() * 5) +1;
-    CPUBlock += Math.floor(Math.random()*4) +1
+        if (OccopiedBlocks.length<8){
+            let CPUBlock = Math.floor(Math.random() * 5) +1;
+            CPUBlock += Math.floor(Math.random()*4) +1
 
-    while (OccupiedBlock(CPUBlock)==true){
-        CPUBlock = Math.floor(Math.random() * 9)+1
+            while (OccupiedBlock(CPUBlock)==true){
+                CPUBlock = Math.floor(Math.random() * 9)+1
+            }
+
+            document.getElementById('area'+CPUBlock).innerHTML = 'O';
+            document.getElementById('area'+CPUBlock).style.color = "Red";
+            markComputerMove(CPUBlock);
+            OccopiedBlocks.push(CPUBlock);
+
+            
+        }
+        if(winnerDetected() != false){
+            makeCross(0)
+        }
+
+
+    }else { 
+        makeCross(0)
     }
-
-    document.getElementById('area'+CPUBlock).innerHTML = 'O';
-    document.getElementById('area'+CPUBlock).style.color = "Red";
-    markComputerMove(CPUBlock);
-    OccopiedBlocks.push(CPUBlock);
-}
-
-
-}
 
 
 }
